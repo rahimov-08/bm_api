@@ -1,0 +1,53 @@
+plugins {
+	id 'org.springframework.boot' version '2.2.5.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+	id 'java'
+}
+
+group = 'ru.bmstu'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+	developmentOnly
+	runtimeClasspath {
+		extendsFrom developmentOnly
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+
+	compile group: 'com.sun.xml.bind', name: 'jaxb-core', version: '2.3.0'
+	compile group: 'com.sun.xml.bind', name: 'jaxb-impl', version: '2.3.1'
+	compile('org.springframework.boot:spring-boot-starter-web')
+	runtime('org.springframework.boot:spring-boot-devtools')
+	compile('org.springframework.boot:spring-boot-starter-data-jpa')
+	compile('org.postgresql:postgresql')
+	compile('org.projectlombok:lombok')
+	compile('javax.xml.bind:jaxb-api')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+	compile group: 'com.ibm.icu', name: 'icu4j', version: '51.1'
+	compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.0'
+	compile group: 'com.googlecode.soundlibs', name: 'mp3spi', version: '1.9.5-1'
+	//test
+	compile("org.springframework.boot:spring-boot-starter-data-rest")
+	// https://mvnrepository.com/artifact/com.github.paulcwarren/spring-content-fs-boot-starter
+	testCompile group: 'com.github.paulcwarren', name: 'spring-content-fs-boot-starter', version: '0.0.1'
+	compile 'com.github.paulcwarren:ginkgo4j:1.0.9'
+
+
+
+
+
+
+
+
+}
+
+test {
+	useJUnitPlatform()
+}
